@@ -138,3 +138,16 @@ def get_router() -> APIRouter:
         raise HTTPException(status_code=404, detail="Monster not found")
 
     return router
+    from pydantic import BaseModel
+from encounter_engine import generate_encounter
+
+class EncounterRequest(BaseModel):
+    party_levels: list[int]
+    difficulty: str = "medium"
+
+@router.post("/encounter")
+def encounter(req: EncounterRequest):
+    _ensure_loaded()
+    monsters = _SRD["monsters"]
+    result = generate_encounter(req.party_levels, monsters, req.difficulty)
+    return result
