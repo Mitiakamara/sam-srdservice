@@ -26,3 +26,4 @@ uvicorn main:app --reload --port 8000
 - Hechizos (todos): `GET http://localhost:8000/srd/spells`
 - Hechizo por nombre: `GET http://localhost:8000/srd/spells/Fire%20Bolt`
 - Buscar monstruos: `GET http://localhost:8000/srd/monsters?q=goblin`
+(update for render)
