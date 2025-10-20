@@ -4,17 +4,23 @@ from typing import Dict, Any, Optional, List
 from fastapi import APIRouter, HTTPException, Query
 from pydantic import BaseModel
 from dotenv import load_dotenv
+from encounter_engine import generate_encounter
 
+# ───────────────────────────────────────────────
 # In-memory store
 _SRD: Dict[str, Any] = {}
 _ADMIN_ID: Optional[int] = None
 
+
+# ───────────────────────────────────────────────
+# Utilidades internas
 def _load_json(path: str) -> Any:
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
+
 def init_srd_service(base_path: str) -> None:
-    """Load all SRD JSONs into memory on startup."""
+    """Carga todos los JSON del SRD en memoria al iniciar el servicio."""
     global _SRD, _ADMIN_ID
     load_dotenv()
     _ADMIN_ID = None
@@ -34,7 +40,7 @@ def init_srd_service(base_path: str) -> None:
         "spells": "spells.json",
         "equipment": "equipment.json",
         "monsters": "monsters_srd.json",
-        "license": "license.json"
+        "license": "license.json",
     }
     loaded = {}
     for key, fname in files.items():
@@ -42,13 +48,16 @@ def init_srd_service(base_path: str) -> None:
         loaded[key] = _load_json(fpath)
     _SRD = loaded
 
+
 def _ensure_loaded():
     if not _SRD:
         raise HTTPException(status_code=503, detail="SRD not loaded")
 
+
 class SearchResult(BaseModel):
     name: str
     data: Dict[str, Any]
+
 
 def _search_dict(d: Dict[str, Any], q: str) -> List[SearchResult]:
     ql = q.lower()
@@ -58,17 +67,27 @@ def _search_dict(d: Dict[str, Any], q: str) -> List[SearchResult]:
             results.append(SearchResult(name=k, data=v))
     return results
 
+
+# ───────────────────────────────────────────────
+# Rutas principales
+
 def get_health_router() -> APIRouter:
+    """Endpoint de estado del servicio."""
     r = APIRouter()
+
     @r.get("/health")
     def health():
         status = "ready" if bool(_SRD) else "cold"
         return {"status": status, "loaded_keys": list(_SRD.keys()) if _SRD else []}
+
     return r
 
-def get_router() -> APIRouter:
-    router = APIRouter()
 
+def get_router() -> APIRouter:
+    """Router principal para exponer el SRD."""
+    router = APIRouter(prefix="/srd", tags=["SRD"])
+
+    # ─── SRD básico ─────────────────────────────
     @router.get("/attributes")
     def attributes():
         _ensure_loaded()
@@ -94,6 +113,7 @@ def get_router() -> APIRouter:
         _ensure_loaded()
         return _SRD["races"]
 
+    # ─── Hechizos ───────────────────────────────
     @router.get("/spells")
     def spells(q: Optional[str] = Query(default=None, description="Full-text query by name or fields")):
         _ensure_loaded()
@@ -113,11 +133,13 @@ def get_router() -> APIRouter:
                 return data[k]
         raise HTTPException(status_code=404, detail="Spell not found")
 
+    # ─── Equipamiento ───────────────────────────
     @router.get("/equipment")
     def equipment():
         _ensure_loaded()
         return _SRD["equipment"]
 
+    # ─── Monstruos ──────────────────────────────
     @router.get("/monsters")
     def monsters(q: Optional[str] = Query(default=None, description="Full-text query by name or fields")):
         _ensure_loaded()
@@ -137,17 +159,17 @@ def get_router() -> APIRouter:
                 return data[k]
         raise HTTPException(status_code=404, detail="Monster not found")
 
+    # ─── Encuentros automáticos ─────────────────
+    class EncounterRequest(BaseModel):
+        party_levels: list[int]
+        difficulty: str = "medium"
+
+    @router.post("/encounter")
+    def encounter(req: EncounterRequest):
+        _ensure_loaded()
+        monsters = _SRD["monsters"]
+        result = generate_encounter(req.party_levels, monsters, req.difficulty)
+        return result
+
+    # ────────────────────────────────────────────
     return router
-    from pydantic import BaseModel
-from encounter_engine import generate_encounter
-
-class EncounterRequest(BaseModel):
-    party_levels: list[int]
-    difficulty: str = "medium"
-
-@router.post("/encounter")
-def encounter(req: EncounterRequest):
-    _ensure_loaded()
-    monsters = _SRD["monsters"]
-    result = generate_encounter(req.party_levels, monsters, req.difficulty)
-    return result
