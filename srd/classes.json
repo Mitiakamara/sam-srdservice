@@ -1,0 +1,68 @@
+{
+  "Cleric": {
+    "hit_die": "1d8",
+    "saves": [
+      "WIS",
+      "CHA"
+    ],
+    "proficiencies": {
+      "armor": [
+        "light",
+        "medium",
+        "shields"
+      ],
+      "weapons": [
+        "simple"
+      ]
+    }
+  },
+  "Fighter": {
+    "hit_die": "1d10",
+    "saves": [
+      "STR",
+      "CON"
+    ],
+    "proficiencies": {
+      "armor": [
+        "all",
+        "shields"
+      ],
+      "weapons": [
+        "simple",
+        "martial"
+      ]
+    }
+  },
+  "Rogue": {
+    "hit_die": "1d8",
+    "saves": [
+      "DEX",
+      "INT"
+    ],
+    "proficiencies": {
+      "armor": [
+        "light"
+      ],
+      "weapons": [
+        "simple",
+        "hand crossbows",
+        "shortswords",
+        "rapiers"
+      ]
+    }
+  },
+  "Wizard": {
+    "hit_die": "1d6",
+    "saves": [
+      "INT",
+      "WIS"
+    ],
+    "proficiencies": {
+      "armor": [],
+      "weapons": [
+        "daggers",
+        "quarterstaffs"
+      ]
+    }
+  }
+}

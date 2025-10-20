@@ -1,0 +1,47 @@
+{
+  "Blinded": {
+    "summary": "Can't see; automatically fails checks requiring sight."
+  },
+  "Charmed": {
+    "summary": "Can't attack charmer; charmer has social edge."
+  },
+  "Deafened": {
+    "summary": "Can't hear; auto-fail checks requiring hearing."
+  },
+  "Frightened": {
+    "summary": "Disadvantage on checks and attacks while source is visible."
+  },
+  "Grappled": {
+    "summary": "Speed 0; ends if grappler is incapacitated."
+  },
+  "Incapacitated": {
+    "summary": "Can't take actions or reactions."
+  },
+  "Invisible": {
+    "summary": "Can't be seen; harder to hit; easier to hit others at range."
+  },
+  "Paralyzed": {
+    "summary": "Incapacitated, can't move or speak; fails STR/DEX saves."
+  },
+  "Petrified": {
+    "summary": "Turned to solid matter; unaware; immobile."
+  },
+  "Poisoned": {
+    "summary": "Disadvantage on attack rolls and ability checks."
+  },
+  "Prone": {
+    "summary": "Crawling; melee against you has advantage; ranged has disadvantage."
+  },
+  "Restrained": {
+    "summary": "Speed 0; attacks against have advantage; your attacks have disadvantage."
+  },
+  "Stunned": {
+    "summary": "Incapacitated, can't move; speaks falteringly."
+  },
+  "Unconscious": {
+    "summary": "Incapacitated, prone, drops what holds; unaware."
+  },
+  "Exhaustion": {
+    "summary": "Cumulative fatigue penalties by level."
+  }
+}

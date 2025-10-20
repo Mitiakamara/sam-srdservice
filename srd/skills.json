@@ -1,0 +1,76 @@
+{
+  "skills": {
+    "Acrobatics": {
+      "ability": "DEX",
+      "desc": "Maintain balance, flips, tight spaces."
+    },
+    "Animal Handling": {
+      "ability": "WIS",
+      "desc": "Calm, control, or understand animals."
+    },
+    "Arcana": {
+      "ability": "INT",
+      "desc": "Knowledge about magic, spells, symbols."
+    },
+    "Athletics": {
+      "ability": "STR",
+      "desc": "Climb, jump, swim, feats of strength."
+    },
+    "Deception": {
+      "ability": "CHA",
+      "desc": "Conceal truth, bluff, mislead."
+    },
+    "History": {
+      "ability": "INT",
+      "desc": "Recall events, cultures, conflicts."
+    },
+    "Insight": {
+      "ability": "WIS",
+      "desc": "Read motives, detect lies."
+    },
+    "Intimidation": {
+      "ability": "CHA",
+      "desc": "Coerce via threats, force of will."
+    },
+    "Investigation": {
+      "ability": "INT",
+      "desc": "Search, deduce clues, solve puzzles."
+    },
+    "Medicine": {
+      "ability": "WIS",
+      "desc": "Stabilize, diagnose, treat ailments."
+    },
+    "Nature": {
+      "ability": "INT",
+      "desc": "Identify flora, fauna, terrain."
+    },
+    "Perception": {
+      "ability": "WIS",
+      "desc": "Spot, hear, or detect presence."
+    },
+    "Performance": {
+      "ability": "CHA",
+      "desc": "Entertain: music, acting, storytelling."
+    },
+    "Persuasion": {
+      "ability": "CHA",
+      "desc": "Influence politely, negotiate."
+    },
+    "Religion": {
+      "ability": "INT",
+      "desc": "Lore of deities, rites, omens."
+    },
+    "Sleight of Hand": {
+      "ability": "DEX",
+      "desc": "Palm objects, pick pockets."
+    },
+    "Stealth": {
+      "ability": "DEX",
+      "desc": "Hide and move quietly."
+    },
+    "Survival": {
+      "ability": "WIS",
+      "desc": "Track, forage, navigate wilds."
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "attributes": {
+    "STR": {
+      "name": "Strength",
+      "desc": "Physical power, athletic ability, carrying capacity."
+    },
+    "DEX": {
+      "name": "Dexterity",
+      "desc": "Agility, reflexes, balance, and speed."
+    },
+    "CON": {
+      "name": "Constitution",
+      "desc": "Endurance, stamina, and health."
+    },
+    "INT": {
+      "name": "Intelligence",
+      "desc": "Reasoning, memory, and knowledge."
+    },
+    "WIS": {
+      "name": "Wisdom",
+      "desc": "Perception, insight, and awareness."
+    },
+    "CHA": {
+      "name": "Charisma",
+      "desc": "Presence, eloquence, and leadership."
+    }
+  },
+  "modifier_formula": "floor((score - 10) / 2)"
+}

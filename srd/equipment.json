@@ -1,0 +1,37 @@
+{
+  "weapons": [
+    {
+      "name": "Dagger",
+      "type": "simple",
+      "damage": "1d4 piercing",
+      "properties": [
+        "finesse",
+        "light",
+        "thrown (20/60)"
+      ]
+    },
+    {
+      "name": "Longsword",
+      "type": "martial",
+      "damage": "1d8 slashing",
+      "properties": [
+        "versatile (1d10)"
+      ]
+    }
+  ],
+  "armor": [
+    {
+      "name": "Leather Armor",
+      "category": "light",
+      "ac": 11,
+      "stealth": "none"
+    },
+    {
+      "name": "Chain Mail",
+      "category": "heavy",
+      "ac": 16,
+      "stealth": "disadvantage",
+      "strength_req": 13
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "Human": {
+    "traits": [
+      "+1 to all ability scores"
+    ],
+    "languages": [
+      "Common"
+    ],
+    "speed": 30
+  },
+  "Elf": {
+    "traits": [
+      "Darkvision",
+      "Keen Senses",
+      "Fey Ancestry",
+      "Trance"
+    ],
+    "languages": [
+      "Common",
+      "Elvish"
+    ],
+    "speed": 30
+  },
+  "Dwarf": {
+    "traits": [
+      "Darkvision",
+      "Dwarven Resilience",
+      "Stonecunning"
+    ],
+    "languages": [
+      "Common",
+      "Dwarvish"
+    ],
+    "speed": 25
+  },
+  "Halfling": {
+    "traits": [
+      "Lucky",
+      "Brave",
+      "Halfling Nimbleness"
+    ],
+    "languages": [
+      "Common",
+      "Halfling"
+    ],
+    "speed": 25
+  }
+}

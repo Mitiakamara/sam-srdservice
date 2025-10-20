@@ -1,0 +1,40 @@
+{
+  "Goblin": {
+    "cr": 0.25,
+    "xp": 50,
+    "hp": 7,
+    "ac": 15,
+    "attack": "1d6+2 slashing",
+    "traits": [
+      "Nimble Escape"
+    ],
+    "speed": 30
+  },
+  "Bandit": {
+    "cr": 0.125,
+    "xp": 25,
+    "hp": 11,
+    "ac": 12,
+    "attack": "1d6+1 slashing",
+    "speed": 30
+  },
+  "Wolf": {
+    "cr": 0.25,
+    "xp": 50,
+    "hp": 11,
+    "ac": 13,
+    "attack": "2d4+2 piercing",
+    "traits": [
+      "Pack Tactics"
+    ],
+    "speed": 40
+  },
+  "Ogre": {
+    "cr": 2,
+    "xp": 450,
+    "hp": 59,
+    "ac": 11,
+    "attack": "2d8+4 bludgeoning",
+    "speed": 40
+  }
+}
