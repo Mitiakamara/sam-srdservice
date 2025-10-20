@@ -85,7 +85,7 @@ def get_health_router() -> APIRouter:
 
 def get_router() -> APIRouter:
     """Router principal para exponer el SRD."""
-    router = APIRouter(prefix="/srd", tags=["SRD"])
+    router = APIRouter(tags=["SRD"])
 
     # ─── SRD básico ─────────────────────────────
     @router.get("/attributes")
